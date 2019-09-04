@@ -21,7 +21,6 @@ export default class Dashboard extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <Text style={styles.titleLetters}>Welcome!</Text>
-          <Text style={styles.titleLetters}>{/* //used for whitespace */}</Text>
 
           <View style={styles.profile}>
             <TouchableOpacity
@@ -87,6 +86,24 @@ export default class Dashboard extends React.Component {
           </View>
 
           <DashBoardInput></DashBoardInput>
+
+          <Button
+          containerStyle={{
+            padding: 10,
+            height: 45,
+            width: 300,
+            overflow: "hidden",
+            marginTop: 15,
+            borderRadius: 10,
+            alignSelf: "center",
+            backgroundColor: "#6F8D71"
+          }}
+          disabledContainerStyle={{ backgroundColor: "grey" }}
+          style={{ fontSize: 16, color: "#FFF" }}
+          onPress = {() => this.props.navigation.navigate('Dash')}
+        >
+          Create Task
+        </Button>
         </ScrollView>
       </View>
     );
@@ -99,15 +116,15 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     flexDirection: "row",
     marginTop: 15,
-    marginBottom: 0,
+    marginBottom: 10,
     marginHorizontal: 30
   },
   profile: {
     fontSize: 24,
     alignSelf: "flex-end",
     margin: 15,
-    marginTop: -10,
-    marginBottom: 0,
+    marginTop: -42,
+    marginBottom: 20,
     marginHorizontal: 30
   },
   seniorDashboardContainer: {
@@ -192,7 +209,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     margin: 15,
     marginTop: 0,
-    marginBottom: 0,
+    marginBottom: -2,
     marginHorizontal: 30
   },
   titleLettersblue: {
