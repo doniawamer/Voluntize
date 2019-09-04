@@ -59,9 +59,9 @@ class HomeScreen extends React.Component {
           }}
           disabledContainerStyle={{ backgroundColor: "grey" }}
           style={{ fontSize: 20, color: "white" }}
-          onPress={() => navigation.navigate('Main')}
+          onPress={() => this.props.navigation.navigate('SLogin')}
         >
-          Login
+          Senior Login
         </Button>
 
         <View style={styles.titleContainer}>
@@ -78,8 +78,9 @@ class HomeScreen extends React.Component {
           }}
           disabledContainerStyle={{ backgroundColor: "grey" }}
           style={{ fontSize: 20, color: "white" }}
+          onPress={() => this.props.navigation.navigate('VLogin')}
         >
-          Sign Up
+          Volunteer Log In
         </Button>
         </View>
 
@@ -97,6 +98,7 @@ class HomeScreen extends React.Component {
 class SeniorLogin extends React.Component {
   render() {
     return (
+      
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Senior Login</Text>
 
