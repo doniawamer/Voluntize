@@ -35,8 +35,9 @@ class HomeScreen extends React.Component {
         </View>
 
         <View style={styles.titleContainer}>
-          <Text style={styles.getStartedText}>Request Help    </Text>
-          <Text style={styles.titleLetters}>Give Back</Text>
+          <Text style={styles.getStartedText}>Request Help.  </Text>
+          <Text style={styles.titleLettersblue}>Give</Text>
+          <Text style={styles.titleLettersgreen}> Back.</Text>
         </View>
         <Text style={styles.titleLetters}>Fostering a sense of community.</Text>
 
@@ -84,7 +85,7 @@ class HomeScreen extends React.Component {
         </Button>
         </View>
 
-        <Button containerStyle={{paddingTop: 40}} style={{ fontSize: 10, color: "black"}}>
+        <Button containerStyle={{paddingTop: 20}} style={{ fontSize: 10, color: "#6F8D71"}}>
           Terms of Service
         </Button>
 
@@ -389,10 +390,23 @@ const styles = StyleSheet.create({
 
   titleLetters: {
     color: "#BFB093",
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: "center"
+  },
+  titleLettersblue: {
+    color: "#77A8AC",
     fontSize: 20,
     lineHeight: 24,
     textAlign: "center"
   },
+  titleLettersgreen: {
+    color: "#6F8D71",
+    fontSize: 20,
+    lineHeight: 24,
+    textAlign: "center"
+  },
+
   tabBarInfoContainer: {
     position: "absolute",
     bottom: 0,
