@@ -1,43 +1,94 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View,
+  Image,
+  Platform,
+  ScrollView,
+  TouchableOpacity,
+   } from "react-native";
+
 import {
   createAppContainer,
   StackActions,
   NavigationActions
 } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import Button from "react-native-button";
 
 
 class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen</Text>
+      <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}
+      >
+        <View style={styles.welcomeContainer}>
+          <Image
+            source={
+              __DEV__
+                ? require("../app/assets/Oldlogo.png")
+                : require("../app/assets/Oldlogo.png")
+            }
+            style={styles.welcomeImage}
+          />
+        </View>
+
+        <View style={styles.titleContainer}>
+          <Text style={styles.getStartedText}>Request Help    </Text>
+          <Text style={styles.titleLetters}>Give Back</Text>
+        </View>
+        <Text style={styles.titleLetters}>Fostering a sense of community.</Text>
+
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../app/assets/pedestriancrossing.png")}
+            style={styles.backgroundContainer}
+          />
+        </View>
 
         <Button
-          title="Login Seniors"
-          onPress={() => {
-            this.props.navigation.dispatch(
-              StackActions.reset({
-                index: 0,
-                actions: [NavigationActions.navigate({ routeName: "SLogin" })]
-              })
-            );
+          containerStyle={{
+            padding: 10,
+            height: 45,
+            width: 300,
+            marginHorizontal: 65,
+            overflow: "hidden",
+            borderRadius: 10,
+            backgroundColor: "#BFB093"
           }}
-        />
+          disabledContainerStyle={{ backgroundColor: "grey" }}
+          style={{ fontSize: 20, color: "white" }}
+          onPress={() => navigation.navigate('Main')}
+        >
+          Login
+        </Button>
+
+        <View style={styles.titleContainer}>
 
         <Button
-          title="Login Volunteers"
-          onPress={() => {
-            this.props.navigation.dispatch(
-              StackActions.reset({
-                index: 0,
-                actions: [NavigationActions.navigate({ routeName: "VLogin" })]
-              })
-            );
+          containerStyle={{
+            padding: 10,
+            height: 45,
+            width: 300,
+            marginHorizontal: -25,
+            overflow: "hidden",
+            borderRadius: 10,
+            backgroundColor: "#BFB093"
           }}
-        />
-      </View>
+          disabledContainerStyle={{ backgroundColor: "grey" }}
+          style={{ fontSize: 20, color: "white" }}
+        >
+          Sign Up
+        </Button>
+        </View>
+
+        <Button containerStyle={{paddingTop: 40}} style={{ fontSize: 10, color: "black"}}>
+          Terms of Service
+        </Button>
+
+      </ScrollView>
+    </View>
     );
   }
 }
@@ -272,3 +323,111 @@ export default class App extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  developmentModeText: {
+    marginBottom: 20,
+    color: "rgba(0,0,0,0.4)",
+    fontSize: 14,
+    lineHeight: 19,
+    textAlign: "center"
+  },
+  contentContainer: {
+    paddingTop: 30
+  },
+  welcomeContainer: {
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20
+  },
+  titleContainer: {
+    alignItems: "center",
+    marginTop: 10,
+    marginHorizontal: 90,
+    flexDirection: "row"
+  },
+  backgroundContainer: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+    marginTop: 3,
+    marginLeft: -10
+  },
+  welcomeImage: {
+    width: 100,
+    height: 100,
+    resizeMode: "contain",
+    marginTop: 3,
+    marginLeft: -10
+  },
+  getStartedContainer: {
+    alignItems: "center",
+    marginHorizontal: 50
+  },
+  homeScreenFilename: {
+    marginVertical: 7
+  },
+  codeHighlightText: {
+    color: "rgba(96,100,109, 0.8)"
+  },
+  codeHighlightContainer: {
+    backgroundColor: "rgba(0,0,0,0.05)",
+    borderRadius: 3,
+    paddingHorizontal: 4
+  },
+  getStartedText: {
+    fontSize: 20,
+    color: "rgba(96,100,109, 1)",
+    lineHeight: 24,
+    textAlign: "center"
+  },
+
+  titleLetters: {
+    color: "#BFB093",
+    fontSize: 20,
+    lineHeight: 24,
+    textAlign: "center"
+  },
+  tabBarInfoContainer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    ...Platform.select({
+      ios: {
+        shadowColor: "black",
+        shadowOffset: { width: 0, height: -3 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3
+      },
+      android: {
+        elevation: 20
+      }
+    }),
+    alignItems: "center",
+    backgroundColor: "#fbfbfb",
+    paddingVertical: 20
+  },
+  tabBarInfoText: {
+    fontSize: 17,
+    color: "rgba(96,100,109, 1)",
+    textAlign: "center"
+  },
+  navigationFilename: {
+    marginTop: 5
+  },
+  helpContainer: {
+    marginTop: 15,
+    alignItems: "center"
+  },
+  helpLink: {
+    paddingVertical: 15
+  },
+  helpLinkText: {
+    fontSize: 14,
+    color: "#2e78b7"
+  }
+});
