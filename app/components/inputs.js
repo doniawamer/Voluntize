@@ -40,6 +40,7 @@ class Inputs extends Component {
           placeholder=" Enter Password here"
           placeholderTextColor="#77A8AC"
           autoCapitalize="none"
+          secureTextEntry={true}
         />
       </View>
     );
