@@ -6,6 +6,7 @@ import {
   Image,
   Platform,
   ScrollView,
+  TextInput,
   TouchableOpacity
 } from "react-native";
 
@@ -16,7 +17,7 @@ import {
 } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import Button from "react-native-button";
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+
 
 class HomeScreen extends React.Component {
   render() {
@@ -196,7 +197,14 @@ class SeniorDash extends React.Component {
 
           </View>
 
-          
+          <TextInput
+          underlineColorAndroid = "transparent"
+          placeholder = "What do you need help with?"
+          placeholderTextColor = "#3b3a30"
+          autoCapitalize = "none"
+          >
+
+          </TextInput>
 
         
 
@@ -504,3 +512,4 @@ const styles = StyleSheet.create({
     color: "#2e78b7"
   }
 });
+
