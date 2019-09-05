@@ -50,14 +50,7 @@ class dashBoardInput extends Component {
           placeholderTextColor="#77A8AC"
           autoCapitalize="none"
         />
-<Text style={loginstyles.pass}>Where will the task occur?</Text>
-        <TextInput
-          style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder=" Enter the location"
-          placeholderTextColor="#77A8AC"
-          autoCapitalize="none"
-        />
+
 
         <Text style={loginstyles.pass}>Is this a recurring task?</Text>
         <TextInput

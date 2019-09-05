@@ -11,102 +11,28 @@ import {
 import Button from "react-native-button";
 import DashBoardInput from "../components/DashBoardInputs";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import CreateTask from "../components/CreateTask"
+import Marketplace from "../components/TaskMarketplace"
 
 export default class Dashboard extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
-          <Text style={styles.titleLetters}>Welcome!</Text>
-
-          <View style={styles.profile}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Profile")}
-            >
-              <Image
-                source={require("../assets/man.png")}
-                style={styles.seniorDashboardContainer}
-              />
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.dashboardContainer}>
-            <Button
-              containerStyle={{
-                padding: 10,
-                height: 40,
-                width: 100,
-                overflow: "hidden",
-                borderRadius: 1000,
-                marginHorizontal: 8,
-                backgroundColor: "#3e4444"
-              }}
-              disabledContainerStyle={{ backgroundColor: "grey" }}
-              style={{ fontSize: 14, color: "white" }}
-              onPress={() => this.props.navigation.navigate("SDash")}
-            >
-              Create Task
-            </Button>
-
-            <Button
-              containerStyle={{
-                padding: 10,
-                height: 40,
-                width: 100,
-                overflow: "hidden",
-                marginHorizontal: 10,
-                borderRadius: 1000,
-                backgroundColor: "#CDAD70"
-              }}
-              disabledContainerStyle={{ backgroundColor: "grey" }}
-              style={{ fontSize: 14, color: "black" }}
-              onPress={() => this.props.navigation.navigate("SDash")}
-            >
-              Favourites
-            </Button>
-            <Button
-              containerStyle={{
-                padding: 10,
-                height: 40,
-                width: 100,
-                overflow: "hidden",
-                marginHorizontal: 10,
-                borderRadius: 1000,
-                backgroundColor: "#CDAD70"
-              }}
-              disabledContainerStyle={{ backgroundColor: "grey" }}
-              style={{ fontSize: 14, color: "black" }}
-              onPress={() => this.props.navigation.navigate("SDash")}
-            >
-              History
-            </Button>
-          </View>
-
-          <DashBoardInput></DashBoardInput>
-
-          <Button
-          containerStyle={{
-            padding: 10,
-            height: 45,
-            width: 300,
-            overflow: "hidden",
-            marginTop: 15,
-            borderRadius: 10,
-            alignSelf: "center",
-            backgroundColor: "#6F8D71"
-          }}
-          disabledContainerStyle={{ backgroundColor: "grey" }}
-          style={{ fontSize: 16, color: "#FFF" }}
-          onPress = {() => this.props.navigation.navigate('Dash')}
-        >
-          Create Task
-        </Button>
-        </ScrollView>
-      </View>
-    );
+    const { flow, userInfo ,title} = this.props.navigation.state.params;
+    //SENIOR
+    if (flow == "senior") {
+      return (
+        <View style={styles.container}>
+            <CreateTask info={userInfo}  title={title} flow={flow} nav={this.props.navigation}></CreateTask>
+        </View>
+      );
+    }
+    //VOLUNTEER
+    else {
+      return (
+        <View style={styles.container}>
+          <Marketplace info={userInfo}  title={title} flow={flow} nav={this.props.navigation}></Marketplace>
+        </View>
+      );
+    }
   }
 }
 

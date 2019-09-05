@@ -81,7 +81,7 @@ export default class HomeScreen extends React.Component {
               style={{ fontSize: 20, color: "white" }}
               onPress={() => this.props.navigation.navigate("Login", {
                 title: 'Volunteer Login',
-                flow: 'volunteer'
+                flow: 'volunteer', 
               })}
             >
               Volunteer Login

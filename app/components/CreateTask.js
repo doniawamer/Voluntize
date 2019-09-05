@@ -9,26 +9,40 @@ import {
 } from "react-native";
 
 import Button from "react-native-button";
-import ProfileForm from "../components/ProfileForm";
+import DashBoardInput from "../components/DashBoardInputs";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default class Dashboard extends React.Component {
-  render() {
-    const { flow, title, userInfo } = this.props.navigation.state.params;
+export default class CreateTask extends React.Component {
 
+    constructor(props) {
+      super(props);
+      // console.log(this.props)
+    }
+
+  render() {
+    const userInfo = this.props.info;
+    const title = this.props.title;
+    const flow = this.props.flow;
     //SENIOR
-    if (flow == "senior") {
       return (
         <View style={styles.container}>
           <ScrollView
             style={styles.container}
             contentContainerStyle={styles.contentContainer}
           >
-            <Text style={styles.titleLetters}>Settings</Text>
+            <Text style={styles.titleLetters}>
+              Welcome, {userInfo.nickname}!
+            </Text>
 
             <View style={styles.profile}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Profile")}
+                onPress={() =>
+                  this.props.nav.navigate("Profile", {
+                    title: title,
+                    flow: flow,
+                    userInfo: userInfo
+                  })
+                }
               >
                 <Image
                   source={require("../assets/man.png")}
@@ -37,115 +51,88 @@ export default class Dashboard extends React.Component {
               </TouchableOpacity>
             </View>
 
-            <ProfileForm info={userInfo}></ProfileForm>
-
             <View style={styles.dashboardContainer}>
               <Button
                 containerStyle={{
                   padding: 10,
-                  height: 45,
-                  width: 150,
+                  height: 40,
+                  width: 100,
                   overflow: "hidden",
-                  marginHorizontal: 10,
-                  borderRadius: 10,
-                  marginTop: 35,
-                  backgroundColor: "#CDAD70",
-                  alignSelf: "center"
+                  borderRadius: 1000,
+                  marginHorizontal: 8,
+                  backgroundColor: "#A09E9C"
                 }}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 16, color: "white" }}
-                onPress={() => this.props.navigation.navigate("Dash")}
+                style={{ fontSize: 14, color: "white" }}
+                onPress={() => this.props.nav.navigate("Dash")}
               >
-                Save
+                Create Task
+              </Button>
+
+              <Button
+                containerStyle={{
+                  padding: 10,
+                  height: 40,
+                  width: 100,
+                  overflow: "hidden",
+                  marginHorizontal: 10,
+                  borderRadius: 1000,
+                  backgroundColor: "#CDAD70"
+                }}
+                disabledContainerStyle={{ backgroundColor: "grey" }}
+                style={{ fontSize: 14, color: "white" }}
+                onPress={() => this.props.nav.navigate("Tasks", {
+                    title: title,
+                    flow: flow,
+                    userInfo: userInfo
+                  })}
+              >
+                Tasks
               </Button>
               <Button
                 containerStyle={{
                   padding: 10,
-                  height: 45,
-                  width: 150,
+                  height: 40,
+                  width: 100,
                   overflow: "hidden",
                   marginHorizontal: 10,
-                  borderRadius: 10,
-                  marginTop: 35,
-                  backgroundColor: "#77A8AC",
-                  alignSelf: "center"
+                  borderRadius: 1000,
+                  backgroundColor: "#CDAD70"
                 }}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 16, color: "white" }}
-                onPress={() => this.props.navigation.navigate("Home")}
+                style={{ fontSize: 14, color: "white" }}
+                onPress={() => this.props.nav.navigate("Task")}
               >
-                Logout
+                Favourites
               </Button>
             </View>
+
+            <DashBoardInput></DashBoardInput>
+
+            <Button
+              containerStyle={{
+                padding: 10,
+                height: 45,
+                width: 300,
+                overflow: "hidden",
+                marginTop: 15,
+                borderRadius: 10,
+                alignSelf: "center",
+                backgroundColor: "#6F8D71"
+              }}
+              disabledContainerStyle={{ backgroundColor: "grey" }}
+              style={{ fontSize: 16, color: "#FFF" }}
+              onPress={() => this.props.nav.navigate("Tasks", {
+                title: title,
+                flow: flow,
+                userInfo: userInfo
+              })}
+            >
+              Create
+            </Button>
           </ScrollView>
         </View>
       );
-    }
-    //VOLUNTEER
-    else if (flow == "volunteer") {
-      return (
-        <View style={styles.container}>
-          <ScrollView
-            style={styles.container}
-            contentContainerStyle={styles.contentContainer}
-          >
-            <Text style={styles.titleLetters}>Settings</Text>
-
-            <View style={styles.profile}>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("Profile")}
-              >
-                <Image
-                  source={require("../assets/girl.png")}
-                  style={styles.seniorDashboardContainer}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <ProfileForm info={userInfo}></ProfileForm>
-
-            <View style={styles.dashboardContainer}>
-              <Button
-                containerStyle={{
-                  padding: 10,
-                  height: 45,
-                  width: 150,
-                  overflow: "hidden",
-                  marginHorizontal: 10,
-                  borderRadius: 10,
-                  marginTop: 35,
-                  backgroundColor: "#CDAD70",
-                  alignSelf: "center"
-                }}
-                disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 16, color: "white" }}
-                onPress={() => this.props.navigation.navigate("Dash")}
-              >
-                Save
-              </Button>
-              <Button
-                containerStyle={{
-                  padding: 10,
-                  height: 45,
-                  width: 150,
-                  overflow: "hidden",
-                  marginHorizontal: 10,
-                  borderRadius: 10,
-                  marginTop: 35,
-                  backgroundColor: "#77A8AC",
-                  alignSelf: "center"
-                }}
-                disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 16, color: "white" }}
-                onPress={() => this.props.navigation.navigate("Home")}
-              >
-                Logout
-              </Button>
-            </View>
-          </ScrollView>
-        </View>
-      );
-    }
   }
 }
 
