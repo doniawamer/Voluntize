@@ -52,7 +52,7 @@ export default class LoginScreen extends React.Component {
             marginTop: 15,
             borderRadius: 10,
             alignSelf: "center",
-            backgroundColor: "#6F8D71"
+            backgroundColor: "#77A8AC"
           }}
           disabledContainerStyle={{ backgroundColor: "grey" }}
           style={{ fontSize: 16, color: "#FFF" }}

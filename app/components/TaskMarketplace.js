@@ -22,13 +22,20 @@ import { bold } from "ansi-colors";
 export default class Marketplace extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props)
+    this.state = {
+      displayedTasks: {
+        task1: true,
+        task2: true,
+        task3: true
+      }
+    };
   }
 
   render() {
     const userInfo = this.props.info;
     const title = this.props.title;
     const flow = this.props.flow;
+    const { displayedTasks } = this.state;
     return (
       <View style={styles.container}>
         <ScrollView
@@ -56,68 +63,77 @@ export default class Marketplace extends React.Component {
 
           <Text style={styles.titleLetters3}>List of Available Tasks</Text>
 
-          <View style={styles.containercard}>
-            <Card title="CARD WITH DIVIDER">
-              <CardTitle>
-                <Text style={styles.titleLetters2}>Grocery Run</Text>
-              </CardTitle>
-              <CardContent style={styles.cardContent}>
-                <View style={{flexDirection: "row", 
-              justifyContent: "space-between"}}>
-                <Text style={styles.titleLettersgreen}>Nancy Drew</Text>
-                <Text style={styles.titleLettersgreen}>~ 45 mins</Text>
-                </View>
-                
-                <View style={styles.notes}>
-                 
-                  <Text style={styles.titleLettersgray2}>About the task:</Text>
-                  <Text style={styles.titleLettersgray}>
-                    Wanted to make a home cooked meal and needed a quick Grocery
-                    Run!
+            <View style={styles.containercard}>
+              <Card title="CARD WITH DIVIDER">
+                <CardTitle>
+                  <Text style={styles.titleLetters2}>
+                    Smart Lightbulb Installation
                   </Text>
-                </View>
-                <View style={{flexDirection: "row", 
-              justifyContent: "space-between"}}>
-                <Button
-                  containerStyle={{
-                    padding: 10,
-                    height: 40,
-                    width: 100,
-                    overflow: "hidden",
-                    marginTop: 5,
-                    borderRadius: 10,
-                    alignSelf: "center",
-                    backgroundColor: "#6F8D71"
-                  }}
-                  disabledContainerStyle={{ backgroundColor: "grey" }}
-                  style={{ fontSize: 16, color: "#FFF" }}
-                  onPress={() => {}}
-                >
-                  Volunteer! 
-                </Button>
-                <Button
-                  containerStyle={{
-                    padding: 10,
-                    height: 40,
-                    width: 100,
-                    overflow: "hidden",
-                    marginTop: 10,
-                    marginBottom: 8,
-                    borderRadius: 10,
-                    alignSelf: "center",
-                    backgroundColor: "#CDAD70"
-                  }}
-                  disabledContainerStyle={{ backgroundColor: "grey" }}
-                  style={{ fontSize: 16, color: "#FFF" }}
-                  onPress={() => {}}
-                >
-                  Decline
-                </Button>
-                </View>
-              </CardContent>
-            </Card>
-          </View>
-              
+                </CardTitle>
+                <CardContent style={styles.cardContent}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <Text style={styles.titleLettersgreen}>Nancy Drew</Text>
+                    <Text style={styles.titleLettersgreen}>~ 15 mins</Text>
+                  </View>
+
+                  <View style={styles.notes}>
+                    <Text style={styles.titleLettersgray2}>
+                      About the task:
+                    </Text>
+                    <Text style={styles.titleLettersgray}>
+                      Gotta replace some lightbulbs around the house.
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <Button
+                      containerStyle={{
+                        padding: 8,
+                        height: 35,
+                        width: 100,
+                        overflow: "hidden",
+                        marginTop: 5,
+                        borderRadius: 10,
+                        alignSelf: "center",
+                        backgroundColor: "#6F8D71"
+                      }}
+                      disabledContainerStyle={{ backgroundColor: "grey" }}
+                      style={{ fontSize: 14, color: "#FFF" }}
+                      onPress={() => {}}
+                    >
+                      Volunteer!
+                    </Button>
+                    <Button
+                      containerStyle={{
+                        padding: 8,
+                        height: 35,
+                        width: 100,
+                        overflow: "hidden",
+                        marginTop: 10,
+                        marginBottom: 8,
+                        borderRadius: 10,
+                        alignSelf: "center",
+                        backgroundColor: "#CDAD70"
+                      }}
+                      disabledContainerStyle={{ backgroundColor: "grey" }}
+                      style={{ fontSize: 14, color: "#FFF" }}
+                      onPress={() => {}}
+                    >
+                      Decline
+                    </Button>
+                  </View>
+                </CardContent>
+              </Card>
+            </View>
 
           <View style={styles.containercard}>
             <Card title="CARD WITH DIVIDER">
@@ -125,63 +141,149 @@ export default class Marketplace extends React.Component {
                 <Text style={styles.titleLetters2}>Iphone Setup Help</Text>
               </CardTitle>
               <CardContent style={styles.cardContent}>
-                <View style={{flexDirection: "row", 
-              justifyContent: "space-between"}}>
-                <Text style={styles.titleLettersyellow}>Clementine Sherbert</Text>
-                <Text style={styles.titleLettersyellow}>~ 50 mins</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <Text style={styles.titleLettersyellow}>
+                    Clementine Sherbert
+                  </Text>
+                  <Text style={styles.titleLettersyellow}>~ 50 mins</Text>
                 </View>
-                
+
                 <View style={styles.notes}>
-                 
                   <Text style={styles.titleLettersgray2}>About the task:</Text>
                   <Text style={styles.titleLettersgray}>
-                    Just purchased the iphoneXLV and I need help with the hologram setup!! 
+                    Just purchased the iphoneXLV and I need help with the
+                    hologram setup!!
                   </Text>
                 </View>
 
-                <View style={{flexDirection: "row", 
-              justifyContent: "space-between"}}>
-                <Button
-                  containerStyle={{
-                    padding: 10,
-                    height: 40,
-                    width: 100,
-                    overflow: "hidden",
-                    marginTop: 5,
-                    borderRadius: 10,
-                    alignSelf: "center",
-                    backgroundColor: "#6F8D71"
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between"
                   }}
-                  disabledContainerStyle={{ backgroundColor: "grey" }}
-                  style={{ fontSize: 16, color: "#FFF" }}
-                  onPress={() => {}}
                 >
-                  Volunteer! 
-                </Button>
-                <Button
-                  containerStyle={{
-                    padding: 10,
-                    height: 40,
-                    width: 100,
-                    overflow: "hidden",
-                    marginTop: 10,
-                    marginBottom: 8,
-                    borderRadius: 10,
-                    alignSelf: "center",
-                    backgroundColor: "#CDAD70"
-                  }}
-                  disabledContainerStyle={{ backgroundColor: "grey" }}
-                  style={{ fontSize: 16, color: "#FFF" }}
-                  onPress={() => {}}
-                >
-                  Decline
-                </Button>
+                  <Button
+                    containerStyle={{
+                      padding: 8,
+                      height: 35,
+                      width: 100,
+                      overflow: "hidden",
+                      marginTop: 5,
+                      borderRadius: 10,
+                      alignSelf: "center",
+                      backgroundColor: "#6F8D71"
+                    }}
+                    disabledContainerStyle={{ backgroundColor: "grey" }}
+                    style={{ fontSize: 14, color: "#FFF" }}
+                    onPress={() => {}}
+                  >
+                    Volunteer!
+                  </Button>
+                  <Button
+                    containerStyle={{
+                      padding: 8,
+                      height: 35,
+                      width: 100,
+                      overflow: "hidden",
+                      marginTop: 10,
+                      marginBottom: 8,
+                      borderRadius: 10,
+                      alignSelf: "center",
+                      backgroundColor: "#CDAD70"
+                    }}
+                    disabledContainerStyle={{ backgroundColor: "grey" }}
+                    style={{ fontSize: 14, color: "#FFF" }}
+                    onPress={() => {}}
+                  >
+                    Decline
+                  </Button>
                 </View>
               </CardContent>
             </Card>
           </View>
-        
 
+          {displayedTasks.task3 ? (
+            <View style={styles.containercard}>
+              <Card title="CARD WITH DIVIDER">
+                <CardTitle>
+                  <Text style={styles.titleLetters2}>Grocery Run</Text>
+                </CardTitle>
+                <CardContent style={styles.cardContent}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <Text style={styles.titleLettersgreen}>
+                      Arnold Schwartz
+                    </Text>
+                    <Text style={styles.titleLettersgreen}>~ 45 mins</Text>
+                  </View>
+
+                  <View style={styles.notes}>
+                    <Text style={styles.titleLettersgray2}>
+                      About the task:
+                    </Text>
+                    <Text style={styles.titleLettersgray}>
+                      Quick grocery run from the Sunday farmers market
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <Button
+                      containerStyle={{
+                        padding: 8,
+                        height: 35,
+                        width: 100,
+                        overflow: "hidden",
+                        marginTop: 5,
+                        borderRadius: 10,
+                        alignSelf: "center",
+                        backgroundColor: "#6F8D71"
+                      }}
+                      disabledContainerStyle={{ backgroundColor: "grey" }}
+                      style={{ fontSize: 14, color: "#FFF" }}
+                      onPress={() => {
+                        this.setState({
+                          displayedTasks: { task3: false }
+                        });
+                      }}
+                    >
+                      Volunteer!
+                    </Button>
+                    <Button
+                      containerStyle={{
+                        padding: 8,
+                        height: 35,
+                        width: 100,
+                        overflow: "hidden",
+                        marginTop: 10,
+                        marginBottom: 8,
+                        borderRadius: 10,
+                        alignSelf: "center",
+                        backgroundColor: "#CDAD70"
+                      }}
+                      disabledContainerStyle={{ backgroundColor: "grey" }}
+                      style={{ fontSize: 14, color: "#FFF" }}
+                      onPress={() => {}}
+                    >
+                      Decline
+                    </Button>
+                  </View>
+                </CardContent>
+              </Card>
+            </View>
+          ) : null}
         </ScrollView>
       </View>
     );
@@ -199,7 +301,7 @@ const styles = StyleSheet.create({
   },
   containercard: {
     marginHorizontal: 28,
-    marginTop: 15,
+    marginTop: 7
   },
   notes: {
     marginTop: 10
@@ -319,13 +421,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     alignSelf: "flex-start",
     margin: 15,
-    marginTop: 0,
-    marginBottom: 20,
+    marginTop: -2,
+    marginBottom: 5,
     marginHorizontal: 30
   },
   titleLetters2: {
     color: "rgba(96,100,109, 1)",
-    fontWeight:"bold",
+    fontWeight: "bold",
     fontSize: 18,
     alignSelf: "flex-start",
     marginTop: 0,
@@ -352,14 +454,14 @@ const styles = StyleSheet.create({
     color: "rgba(96,100,109, 1)",
     fontSize: 14,
     lineHeight: 16,
-    marginTop: 5,
+    marginTop: 5
   },
   titleLettersgray2: {
     color: "rgba(96,100,109, 1)",
     fontSize: 14,
     lineHeight: 16,
     // fontWeight: bold,
-    marginTop: 5,
+    marginTop: 5
   },
   tabBarInfoContainer: {
     position: "absolute",

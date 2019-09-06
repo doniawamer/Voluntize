@@ -10,6 +10,8 @@ import LoginScreen from './screens/LoginScreen';
 import Dashboard from './screens/Dashboard';
 import Profile from './screens/Profile';
 import Tasks from './screens/Tasks'
+import VolunteerProfile from './screens/VolunteerProfile'
+
 
 // Routes
 const RootStack = createStackNavigator(
@@ -18,7 +20,9 @@ const RootStack = createStackNavigator(
     Login: LoginScreen,
     Dash: Dashboard,
     Profile: Profile,
-    Tasks: Tasks
+    Tasks: Tasks,
+    VolunteerProfile: VolunteerProfile
+
   },
   {
     initialRouteName: "Home"

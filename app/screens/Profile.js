@@ -12,7 +12,7 @@ import Button from "react-native-button";
 import ProfileForm from "../components/ProfileForm";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default class Dashboard extends React.Component {
+export default class Profile extends React.Component {
   render() {
     const { flow, title, userInfo } = this.props.navigation.state.params;
 

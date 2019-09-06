@@ -9,21 +9,15 @@ import {
 } from "react-native";
 
 import Button from "react-native-button";
-import DashBoardInput from "../components/DashBoardInputs";
+import ProfileForm from "../components/ProfileForm";
+import VolunteerForm from "../components/VolunteerForm";
+
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default class CreateTask extends React.Component {
-
-    constructor(props) {
-      super(props);
-      // console.log(this.props)
-    }
-
+export default class VolunteerProfile extends React.Component {
   render() {
-    const userInfo = this.props.info;
-    const title = this.props.title;
-    const flow = this.props.flow;
-    const task3= "true";
+    //const { flow, title, userInfo } = this.props.navigation.state.params;
+
     //SENIOR
       return (
         <View style={styles.container}>
@@ -31,107 +25,57 @@ export default class CreateTask extends React.Component {
             style={styles.container}
             contentContainerStyle={styles.contentContainer}
           >
-            <Text style={styles.titleLetters}>
-              Welcome, {userInfo.nickname}!
-            </Text>
-
+            <View style={styles.titleLetters}>
+              <Text style={styles.titleLetters}>Matilda will volunteer with you! </Text>
+            </View>
             <View style={styles.profile}>
-              <TouchableOpacity
-                onPress={() =>
-                  this.props.nav.navigate("Profile", {
-                    title: title,
-                    flow: flow,
-                    userInfo: userInfo
-                  })
-                }
-              >
                 <Image
-                  source={require("../assets/man.png")}
+                  source={require("../assets/girl.png")}
                   style={styles.seniorDashboardContainer}
                 />
-              </TouchableOpacity>
             </View>
+
+            <VolunteerForm></VolunteerForm>
+            
 
             <View style={styles.dashboardContainer}>
               <Button
                 containerStyle={{
                   padding: 10,
-                  height: 40,
-                  width: 100,
-                  overflow: "hidden",
-                  borderRadius: 1000,
-                  marginHorizontal: 8,
-                  backgroundColor: "#A09E9C"
-                }}
-                disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 14, color: "white" }}
-                onPress={() => this.props.nav.navigate("Dash")}
-              >
-                Create Task
-              </Button>
-
-              <Button
-                containerStyle={{
-                  padding: 10,
-                  height: 40,
-                  width: 100,
+                  height: 45,
+                  width: 150,
                   overflow: "hidden",
                   marginHorizontal: 10,
-                  borderRadius: 1000,
-                  backgroundColor: "#CDAD70"
+                  borderRadius: 10,
+                  marginTop: -10,
+                  backgroundColor: "#77A8AC",
+                  alignSelf: "center"
                 }}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 14, color: "white" }}
-                onPress={() => this.props.nav.navigate("Tasks", {
-                    title: title,
-                    flow: flow,
-                    userInfo: userInfo
-                  })}
+                style={{ fontSize: 16, color: "white" }}
+                onPress={() => this.props.navigation.navigate("Dash")}
               >
-                Tasks
+                Confirm
               </Button>
               <Button
                 containerStyle={{
                   padding: 10,
-                  height: 40,
-                  width: 100,
+                  height: 45,
+                  width: 150,
                   overflow: "hidden",
                   marginHorizontal: 10,
-                  borderRadius: 1000,
-                  backgroundColor: "#CDAD70"
+                  borderRadius: 10,
+                  marginTop: -10,
+                  backgroundColor: "#CDAD70",
+                  alignSelf: "center"
                 }}
                 disabledContainerStyle={{ backgroundColor: "grey" }}
-                style={{ fontSize: 14, color: "white" }}
-                onPress={() => this.props.nav.navigate("Task")}
+                style={{ fontSize: 16, color: "white" }}
+                onPress={() => this.props.navigation.navigate("Home")}
               >
-                Favourites
+                Logout
               </Button>
             </View>
-
-            <DashBoardInput></DashBoardInput>
-
-            <Button
-              containerStyle={{
-                padding: 10,
-                height: 45,
-                width: 300,
-                overflow: "hidden",
-                marginTop: 15,
-                borderRadius: 10,
-                alignSelf: "center",
-                backgroundColor: "#6F8D71"
-              }}
-              disabledContainerStyle={{ backgroundColor: "grey" }}
-              style={{ fontSize: 16, color: "#FFF" }}
-              onPress={() => this.props.nav.navigate("Tasks", {
-                title: title,
-                flow: flow,
-                userInfo: userInfo,
-                task3: task3,
-              })}
-            >
-              Create
-            </Button>
           </ScrollView>
         </View>
       );
@@ -149,15 +93,15 @@ const styles = StyleSheet.create({
   },
   profile: {
     fontSize: 24,
-    alignSelf: "flex-end",
+    alignSelf: "center",
     margin: 15,
-    marginTop: -42,
+    marginTop: 20,
     marginBottom: 20,
     marginHorizontal: 30
   },
   seniorDashboardContainer: {
-    width: 50,
-    height: 50,
+    width: 200,
+    height: 200,
     resizeMode: "contain"
   },
   container: {
@@ -237,8 +181,10 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     margin: 15,
     marginTop: 0,
+    marginLeft: 5,
     marginBottom: -2,
-    marginHorizontal: 30
+    marginRight: 5,
+    marginHorizontal: 0
   },
   titleLettersblue: {
     color: "#77A8AC",
