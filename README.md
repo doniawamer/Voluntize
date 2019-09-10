@@ -12,10 +12,6 @@ Voluntize is an app that connects volunteers with nearby seniors who require ass
 
 </div>
 
-
-<p align="center">
-    <img src="/app/assets/Oldlogo.png" width="480" />
-</p><br/>
 <br/>
 <br/>
 
